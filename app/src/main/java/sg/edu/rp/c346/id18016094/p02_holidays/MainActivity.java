@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,30 +19,33 @@ public class MainActivity extends AppCompatActivity {
     ListView lv;
     TextView tv;
     ArrayAdapter aa;
-    ArrayList<First> yy;
+    ArrayList<First> year;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.row1);
+        setContentView(R.layout.activity_main);
 
         lv = (ListView)this.findViewById(R.id.lv1);
 
-        yy = new ArrayList<First>();
-        yy.add(new First("Secular"));
+        year = new ArrayList<First>();
+        year.add(new First("Secular"));
+        year.add(new First("Ethnic and Religion"));
 
-        aa = new FirstAdapter(this, R.layout.row1, yy);
+        aa = new FirstAdapter(this, R.layout.row1, year);
         lv.setAdapter(aa);
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                First selectedYear = yy.get(position);
-                String[] info = {selectedYear.getHoli()};
-                Intent i = new Intent(MainActivity.this, SecondPage.class);
-                i.putExtra("info", info);
+
+                First selectedYear = year.get(position);
+                String[] info = {selectedYear.getName()};
+                Log.d("dqjndw", info.toString());
+
+                Intent i = new Intent(MainActivity.this,SecondPage.class);
+                i.putExtra("info",info);
                 startActivity(i);
             }
-    });
+        });
     }
 }

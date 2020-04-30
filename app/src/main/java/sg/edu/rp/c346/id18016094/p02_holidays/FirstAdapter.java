@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class FirstAdapter extends ArrayAdapter<First> {
-
     private ArrayList<First> yy;
     private Context context;
     private TextView tvYear;
@@ -32,11 +31,10 @@ public class FirstAdapter extends ArrayAdapter<First> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.activity_main, parent, false);
+        View rowView = inflater.inflate(R.layout.row1, parent, false);
         First currentYear = yy.get(position);
-
-        tvYear = (TextView) rowView.findViewById(R.id.textView1);
-        tvYear.setText(currentYear.getHoli());
+        tvYear = (TextView) rowView.findViewById(R.id.textView);
+        tvYear.setText(currentYear.getName());
         return rowView;
     }
 }

@@ -14,7 +14,9 @@ public class SecondAdapter extends ArrayAdapter<Second> {
 
     private ArrayList<Second> secsec;
     private Context context;
-    private TextView tv, tv2, tv3;
+    private TextView tv;
+    private TextView tv2;
+    private TextView tv3;
     private ImageView ivImage;
 
     public SecondAdapter(Context context, int resource, ArrayList<Second> objects){
@@ -36,10 +38,18 @@ public class SecondAdapter extends ArrayAdapter<Second> {
         // "Inflate" the row.xml as the layout for the View object
         View rowView = inflater.inflate(R.layout.activity_second_page, parent, false);
 
+        Second fishball = secsec.get(position);
+
         tv = (TextView) rowView.findViewById(R.id.textView);
         tv2 = (TextView) rowView.findViewById(R.id.textView2);
         tv3 = (TextView) rowView.findViewById(R.id.textView3);
+
+        tv2.setText(fishball.getDayday());
+        tv3.setText(fishball.getDatedate());
+
         ivImage = (ImageView) rowView.findViewById(R.id.imageView);
+
+        ivImage.setImageResource(fishball.getImageimage());
 
         return rowView;
     }

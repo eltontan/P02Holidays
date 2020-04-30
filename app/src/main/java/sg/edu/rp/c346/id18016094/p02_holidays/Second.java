@@ -2,24 +2,38 @@ package sg.edu.rp.c346.id18016094.p02_holidays;
 
 public class Second {
 
-    private String calender;
-    private boolean isCalender;
-    public Second(String calender, boolean isCalender) {
-        this.calender = calender;
-        this.isCalender = isCalender;
+    private String dayday;
+    private int imageimage;
+    private String datedate;
+
+    public Second (String dayday, String datedate, int imageimage) {
+        this.dayday = dayday;
+        this.datedate = datedate;
+        this.imageimage = imageimage;
     }
 
-    public String getCalender() {
-        return calender;
+    public String getDayday() {
+        return dayday;
     }
 
-    public boolean isCalender() {
-        return isCalender;
+    public void setDayday(String dayday) {
+        this.dayday = dayday;
     }
 
-    public void setCalender(String calender) {
-        this.calender = calender;
+    public int getImageimage() {
+        return imageimage;
     }
 
+    public void setImageimage(int imageimage) {
+        this.imageimage = imageimage;
+    }
+
+    public String getDatedate() {
+        return datedate;
+    }
+
+    public void setDatedate(String datedate) {
+        this.datedate = datedate;
+    }
 }
 
